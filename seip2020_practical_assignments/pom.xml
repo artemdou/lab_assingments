@@ -4,7 +4,7 @@
   <artifactId>seip2020_practical_assignments</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>parent-project</name>
+  <name>Lab assignments </name>
   <description> This is the parent maven project </description>
   <modules>
   	<module>gradeshistogram</module>
