@@ -32,6 +32,46 @@ public class HistogramGenerator {
 		demo.generateChart(grades);
     }
 	
+/*	public static Integer[] getFrequencies(Integer[] grades) {
+		Integer[] frequencies = {0,0,0,0,0,0,0,0,0,0,0};
+		for (int i = 0; i < grades.length;){
+			if (grades[i] == 0) {
+				frequencies[0]++;
+			}
+			if (grades[i] == 1) {
+				frequencies[1]++;
+			}
+			if (grades[i] == 2) {
+				frequencies[2]++;
+			}
+			if (grades[i] == 3) {
+				frequencies[3]++;
+			}
+			if (grades[i] == 4) {
+				frequencies[4]++;
+			}
+			if (grades[i] == 5) {
+				frequencies[5]++;
+			}
+			if (grades[i] == 6) {
+				frequencies[6]++;
+			}
+			if (grades[i] == 7) {
+				frequencies[7]++;
+			}
+			if (grades[i] == 8) {
+				frequencies[8]++;
+			}
+			if (grades[i] == 9) {
+				frequencies[9]++;
+			}
+			if (grades[i] == 10) {
+				frequencies[10]++;
+			}
+		}
+		return frequencies;
+	} */
+	
 	public static ArrayList<Integer> readLines(File file) {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -72,11 +112,51 @@ public class HistogramGenerator {
 		XYSeries data = new XYSeries("random values");
 
 		/*
+		 * Get the Integer array of the frequency of the dataValues values
+		 */
+		Integer[] frequencies = {0,0,0,0,0,0,0,0,0,0,0};
+		for (int i = 0; i < dataValues.length; i++) {
+				if ( dataValues[i] == 0) {
+					frequencies[0]++;
+				}
+				if ( dataValues[i] == 1) {
+					frequencies[1]++;
+				}
+				if ( dataValues[i] == 2) {
+					frequencies[2]++;
+				}
+				if ( dataValues[i] == 3) {
+					frequencies[3]++;
+				}
+				if ( dataValues[i] == 4) {
+					frequencies[4]++;
+				}
+				if ( dataValues[i] == 5) {
+					frequencies[5]++;
+				}
+				if ( dataValues[i] == 6) {
+					frequencies[6]++;
+				}
+				if ( dataValues[i] == 7) {
+					frequencies[7]++;
+				}
+				if ( dataValues[i] == 8) {
+					frequencies[8]++;
+				}
+				if ( dataValues[i] == 9) {
+					frequencies[9]++;
+				}
+				if ( dataValues[i] == 10) {
+					frequencies[10]++;
+				}
+			}
+		
+		/*
 		 * Populating the XYSeries data object from the input Integer array
 		 * values.
 		 */
-		for (int i = 0; i < dataValues.length; i++) {
-			data.add(i, dataValues[i]);
+		for (int i = 0; i < 11; i++) {
+			data.add(i, frequencies[i]);
 		}
 
 		// add the series to the dataset
@@ -87,7 +167,7 @@ public class HistogramGenerator {
 		boolean urls = false; // do not visualize urls
 
 		// Declare and initialize a createXYLineChart JFreeChart
-		JFreeChart chart = ChartFactory.createXYLineChart("Chart title", "x_axis title", "y_axis_title", dataset,
+		JFreeChart chart = ChartFactory.createXYLineChart("Grade Frequency", "grade", "number of students", dataset,
 				PlotOrientation.VERTICAL, legend, tooltips, urls);
 
 		/*
