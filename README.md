@@ -5,5 +5,5 @@ This repository is used for the purposes of the course Software Engineering in P
 # Prerequisites
 Since the repository contains .java files, on ordet to execute them, java needs to be installed. 
 
-*Learn how to install java [here] (https://java.com/en/download/help/download_options.xml)*
+*Learn how to install java [here](https://java.com/en/download/help/download_options.xml)*
 
