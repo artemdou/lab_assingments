@@ -5,6 +5,7 @@ jdk: # Define the execution environments
 branches: # Execute job only on specific branch commits
 only:
 - master
+- developement
 sudo: required # Linux Administrator permissions
 before_install:
 - sudo apt update # Update the package list
