@@ -8,6 +8,6 @@
   <description> This is the parent maven project for the lab assignments</description>
   <modules>
   	<module>gradeshistogram</module>
-  	<module>mathoperations</module>
+  	<module>math</module>
   </modules>
 </project>
