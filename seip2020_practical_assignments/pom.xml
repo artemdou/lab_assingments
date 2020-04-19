@@ -5,8 +5,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Lab assignments </name>
-  <description> This is the parent maven project </description>
+  <description> This is the parent maven project for the lab assignments</description>
   <modules>
   	<module>gradeshistogram</module>
+  	<module>mathoperations</module>
   </modules>
 </project>
