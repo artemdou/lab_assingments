@@ -6,4 +6,6 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>math</artifactId>
+  <name>Math operations</name>
+  <description>A project for the 3rd lab assingment</description>
 </project>
