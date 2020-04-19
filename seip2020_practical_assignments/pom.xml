@@ -6,8 +6,17 @@
   <packaging>pom</packaging>
   <name>Lab assignments </name>
   <description> This is the parent maven project for the lab assignments</description>
+  <dependencies>
+  	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+		<scope>test</scope>
+	</dependency>
+  </dependencies>
   <modules>
   	<module>gradeshistogram</module>
   	<module>math</module>
   </modules>
+  
 </project>
