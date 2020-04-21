@@ -1,6 +1,6 @@
 # lab_assingments
 
-[![Build Status](https://travis-ci.org/artemdou/lab_assingments.svg?branch=master)](https://travis-ci.org/artemdou/lab_assingments)
+[![Build Status](https://travis-ci.org/artemdou/lab_assingments.svg?branch=development)](https://travis-ci.org/artemdou/lab_assingments)
 
 This repository is used for the purposes of the course Software Engineering in Practice (Department of Management Science and Technology, Athens University of Economics and business).
 
