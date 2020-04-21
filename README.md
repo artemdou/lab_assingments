@@ -7,6 +7,7 @@ This repository consists of a parent Maven project and two sub-projects (modules
  1. [HistogramGenerator](https://github.com/artemdou/lab_assingments/tree/development/seip2020_practical_assignments/gradeshistogram), that handles dependencies. More specifically, it creates a histogram from a given set of numbers.
  2. [Math](https://github.com/artemdou/lab_assingments/tree/development/seip2020_practical_assignments/math), that handles arithmetic operations. 
 [learn about the math module](https://github.com/artemdou/lab_assingments/blob/development/seip2020_practical_assignments/math/README.md)
+
 Execute the following command in the repository root directory in order to build all modules.
 ```
 mvn package
