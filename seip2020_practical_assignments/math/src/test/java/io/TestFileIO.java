@@ -3,7 +3,9 @@ package io;
 import java.io.File;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import io.FileIO;
 
@@ -14,7 +16,6 @@ public class TestFileIO {
 	public TestFileIO() {
 		this.f = new FileIO();
 	}
-	
 	
 	/*
 	 * A test case that checks the 'normal' case. 
@@ -31,4 +32,26 @@ public class TestFileIO {
 		Assert.assertArrayEquals(test, f.readFile(absolutePath));
 	}
 	
+	@Rule 
+	public ExpectedException thrown = ExpectedException.none(); //initialize it to .none()
+	
+	@Test 
+	public void testFileDoesNotExist() {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Input file does not exist");
+		f.readFile("test3.txt");
+	}
+	
+	@Test 
+	public void testFileEmpty() {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Given file is empty");
+		
+		String resourceName = "test2.txt";
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource(resourceName).getFile());
+		String absolutePath = file.getAbsolutePath();
+		
+		f.readFile(absolutePath);
+	}
 }
