@@ -47,10 +47,12 @@ java -jar gradeshistogram/target/gradeshistogram-0.0.1-SNAPSHOT-jar-with-depende
 Note that the gradeshistogram-0.0.1-SNAPSHOT.jar is not executable. 
 
 ## Run Tests
-Since the project uses Maven and implements unit testing, test are run with the ```
+Since the project uses Maven and implements unit testing, test are run with the 
+```
 mvn test
-``` command.
+``` 
+command.
 
-## How to..
+## How to 
 1) Setup Maven in Windows - [tutorial](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 2) Setup Maven in Linux. Execute ```sudo apt update && sudo apt install maven``` in a terminal. 
