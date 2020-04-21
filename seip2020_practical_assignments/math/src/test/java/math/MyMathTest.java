@@ -33,4 +33,23 @@ public class MyMathTest {
 	public void testFactorialZero() {
 		Assert.assertEquals(1, mm.factorial(0), 0);
 	}
+	
+	@Test
+	public void testIsPrimeTrue() {
+		Assert.assertTrue(mm.isPrime(7));
+	}
+	
+	@Test
+	public void testIsPrimeFalsee() {
+		Assert.assertFalse(mm.isPrime(6));
+	}
+	
+	@Test 
+	public void testIsPrimeInvalidInput() {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Invalid input");
+		mm.isPrime(1);
+	}
+	
+	
 }
