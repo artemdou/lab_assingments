@@ -13,7 +13,7 @@ before_script:
   - cd seip2020_practical_assignments  # enter Maven root directory
 
 script: 
-  - mvn clean package 
+  - mvn clean package jacoco:report 
 
 after_success:
 - echo "Hello there!"
