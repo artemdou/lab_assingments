@@ -10,7 +10,7 @@ branches:
   - development
 
 before_script: 
-  - cd project  # enter Maven root directory
+  - cd seip2020_practical_assignments  # enter Maven root directory
   - ls -la # this command just prints the contents of the current working directory.
 
 script: 
