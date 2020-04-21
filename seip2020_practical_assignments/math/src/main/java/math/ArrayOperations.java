@@ -17,9 +17,12 @@ public class ArrayOperations {
 		int[] array = f.readFile(filepath);
 		ArrayList<Integer> primesList = new ArrayList<Integer>();
 		for (int i = 0; i < array.length; i++) {
-			if (mm.isPrime(array[i])) {
-				primesList.add(array[i]);
+			if (i >= 2) {
+				if (mm.isPrime(array[i])) {
+					primesList.add(array[i]);
+				}
 			}
+			
 		}
 		return primesList.stream().mapToInt(i -> i).toArray();
 		
