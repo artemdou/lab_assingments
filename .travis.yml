@@ -1,7 +1,7 @@
 language: java # Define the language
 jdk: # Define the execution environments
 - openjdk8
-#- oraclejdk8
+- oraclejdk8
 branches: # Execute job only on specific branch commits
 only:
 - master
