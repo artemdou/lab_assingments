@@ -46,7 +46,7 @@ java -jar gradeshistogram/target/gradeshistogram-0.0.1-SNAPSHOT-jar-with-depende
 ```
 Note that the gradeshistogram-0.0.1-SNAPSHOT.jar is not executable. 
 
-##Run Tests
+## Run Tests
 Since the project uses Maven and implements unit testing, test are run with the ```
 mvn test
 ``` command.
