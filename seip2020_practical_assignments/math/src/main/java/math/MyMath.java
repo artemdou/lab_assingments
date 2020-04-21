@@ -26,4 +26,20 @@ public class MyMath {
 			return i * factorial(i - 1); 
 		}
 	}
+	
+	/**
+	 * Checks if i >= 2 is a prime number.
+	 * @param i
+	 * @return boolean (true if i is a prime number)
+	 * @exception IllegalArgumentExceptio when <b>i<b> < 2 
+	 */
+	public boolean isPrime(int i) {
+		if (i < 2) {
+			throw new IllegalArgumentException("Invalid input");
+		} else if (i%2 == 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
