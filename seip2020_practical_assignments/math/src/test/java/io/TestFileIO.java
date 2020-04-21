@@ -39,7 +39,7 @@ public class TestFileIO {
 	public void testFeadFileFileDoesNotExist() {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("Input file does not exist");
-		f.readFile("test3.txt");
+		f.readFile("test10.txt");
 	}
 	
 	@Test 
