@@ -1,20 +1,23 @@
-language: java # Define the language
-jdk: # Define the execution environments
-- openjdk8
-#- oraclejdk8
-branches: # Execute job only on specific branch commits
-only:
-- master
-- developement
-sudo: required # Linux Administrator permissions
-before_install:
-- sudo apt update # Update the package list
-install:
-- sudo apt install maven # Install required packages
-before_script: # Perform commands
-- cd project
-- ls -la
-script: # Build the project
-- mvn clean package
-after_success: # Notify users about the result
-- echo “Process terminated successfully”
+  
+language: java
+
+jdk:
+  - openjdk8
+
+branches:
+  only:
+  - master
+  - development
+
+before_script: 
+  - cd project  # enter Maven root directory
+  - ls -la # this command just prints the contents of the current working directory.
+
+script: 
+  - mvn clean package jacoco:report coveralls:report cobertura:cobertura 
+    # the coveralls:report is required only for the coveralls coverage service
+    # the cobertura:cobertura is optional only for advanced coverage reporting and, if exists, is used by CodeCov 
+
+after_success:
+- bash <(curl -s https://codecov.io/bash) -t 1036eb64-2d96-44c6-b132-0dde4e7dfcca # replace the 1036eb64-2d96-44c6-b132-0dde4e7dfcca with your repository's token obtained by CodeCov
+- echo "Hello there!"
