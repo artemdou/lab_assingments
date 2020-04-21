@@ -8,9 +8,9 @@ public class ArrayOperations {
 
 	/**
 	 * Finds the prime numbers from a text file
-	 * @param FileIO f
-	 * @param String filepath
-	 * @param MyMath mm
+	 * @param FileIO f, object of FileIo class
+	 * @param String filepath, the location of the file where the numbers are
+	 * @param MyMath mm, object of MyMath class
 	 * @return list of prime numbers
 	 */
 	public int[] findPrimesInFile(FileIO f, String filepath, MyMath mm) {
