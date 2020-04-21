@@ -26,6 +26,7 @@ public class FileIO {
 	 * @exception IllegalArgumentException when the given file does not exist
 	 * @exception IllegalArgumentException when the given file is empty
 	 * @exception IOException when an IO interruption occurs (not required to be tested)
+	 * @exception NumberFormatException when a non-int value tries to be parsed
 	 */
 	public int[] readFile(String filepath) {
 		File file = new File(filepath);
