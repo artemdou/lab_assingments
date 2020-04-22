@@ -76,19 +76,14 @@ public class TestFileIO {
 	
 	@Test
 	public void testReadFileContainsInvalidEntry() {
-		
-		try{
+			
 			String resourceName = "test3.txt";
 			ClassLoader classLoader = getClass().getClassLoader();
 			File file = new File(classLoader.getResource(resourceName).getFile());
 			String absolutePath = file.getAbsolutePath();
+			int[] expected = {1, 2};
 			
-			f.readFile(absolutePath);
-		    
-		} catch(NumberFormatException e){
-		    Assert.fail("NumberFormatException");
-		} catch(IllegalArgumentException e) {
-		}
+			Assert.assertArrayEquals(expected, f.readFile(absolutePath));    
 	}
 		
 		
