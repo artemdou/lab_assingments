@@ -36,7 +36,9 @@ public class MyMath {
 	public boolean isPrime(int i) {
 		if (i < 2) {
 			throw new IllegalArgumentException("Invalid input");
-		} else if (i%2 == 0) {
+		} else if (i == 3 || i == 2) {
+			return true;
+		} else if (i%2 == 0 || i%3 == 0) {
 			return false;
 		} else {
 			return true;
