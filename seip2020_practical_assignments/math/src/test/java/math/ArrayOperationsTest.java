@@ -4,7 +4,8 @@ import java.io.File;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import static org.mockito.Mockito.*;
 
 import io.FileIO;
 import math.MyMath;
@@ -20,19 +21,22 @@ public class ArrayOperationsTest {
 	}
 	
 	/*
-	 * A test case that checks the 'normal' case. 
+	 * A test case that checks the 'normal' case with mocks. 
 	 */
 	@Test
 	public void testFindPrimesInFile() {
-		int[] test = {3,5,11};
-		String resourceName = "arraysTest.txt";
-		 
-		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource(resourceName).getFile());
-		String absolutePath = file.getAbsolutePath();
-		MyMath mm = new MyMath();
-		FileIO f = new FileIO();
-		Assert.assertArrayEquals(test, ao.findPrimesInFile(f, absolutePath, mm));
+		
+		MyMath mm = mock(MyMath.class);
+		FileIO f = mock(FileIO.class);
+		
+		int[] expected = {1,5,6};
+		when(f.readFile("something")).thenReturn(expected);
+		
+		when(mm.isPrime(1)).thenReturn(false);
+		when(mm.isPrime(5)).thenReturn(true);
+		when(mm.isPrime(6)).thenReturn(false);
+		
+		Assert.assertArrayEquals(new int[] {5}, ao.findPrimesInFile(f, "something", mm));
 	}
 	
 	
