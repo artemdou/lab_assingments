@@ -9,11 +9,11 @@ import org.junit.rules.ExpectedException;
 
 import io.FileIO;
 
-public class TestFileIO {
+public class FileIOTest {
 
 	FileIO f;
 	
-	public TestFileIO() {
+	public FileIOTest() {
 		this.f = new FileIO();
 	}
 	
@@ -83,7 +83,8 @@ public class TestFileIO {
 			String absolutePath = file.getAbsolutePath();
 			int[] expected = {1, 2};
 			
-			Assert.assertArrayEquals(expected, f.readFile(absolutePath));    
+			Assert.assertArrayEquals(expected, f.readFile(absolutePath));
+		    
 	}
 		
 		
