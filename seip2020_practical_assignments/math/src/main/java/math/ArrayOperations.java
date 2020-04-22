@@ -3,7 +3,7 @@ package math;
 import java.util.ArrayList;
 
 import io.FileIO;
-import static org.mockito.Mockito.*;
+
 
 public class ArrayOperations {
 
@@ -18,7 +18,7 @@ public class ArrayOperations {
 		int[] array = f.readFile(filepath);
 		ArrayList<Integer> primesList = new ArrayList<Integer>();
 		for (int i = 0; i < array.length; i++) {
-			if (i >= 2) {
+			if (array[i] >= 2) {
 				if (mm.isPrime(array[i])) {
 					primesList.add(array[i]);
 				}
