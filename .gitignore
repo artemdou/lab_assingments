@@ -1,2 +1,16 @@
 /.metadata/
 /RemoteSystemsTempFiles/
+
+/seip2020_practical_assignments/target/
+/seip2020_practical_assignments/.settings/
+
+/seip2020_practical_assignments/math/.settings/
+/seip2020_practical_assignments/math/bin/
+/seip2020_practical_assignments/math/target/
+/seip2020_practical_assignments/math/.classpath
+/seip2020_practical_assignments/math/.project
+
+/seip2020_practical_assignments/gradeshistogram/.settings/
+/seip2020_practical_assignments/gradeshistogram/target/
+/seip2020_practical_assignments/gradeshistogram/.classpath
+/seip2020_practical_assignments/gradeshistogram/.project
