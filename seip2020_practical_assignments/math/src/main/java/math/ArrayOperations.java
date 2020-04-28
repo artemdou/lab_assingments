@@ -4,7 +4,14 @@ import java.util.ArrayList;
 
 import io.FileIO;
 
-
+/**
+* The ArrayOperatios class provides simple arithmetic operations
+* that consider an array of numbers.
+*
+* @author  artemdou
+* @version 1.0
+* @since   2020-04-29 
+*/
 public class ArrayOperations {
 
 	/**
