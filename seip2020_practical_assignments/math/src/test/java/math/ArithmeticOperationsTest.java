@@ -41,31 +41,45 @@ public class ArithmeticOperationsTest {
 		op.divide(1, 0);
 	}
 	
+	@Test 
+	public void testMultiplyNormal() {
+		Assert.assertEquals(10, op.multiply(2, 5), 0);	
+	}
+	
 	@Rule 
 	public ExpectedException thrown = ExpectedException.none(); //initialize it to .none()
 
 	@Test 
-	public void testMultiplyShouldThrowExceptionOnNegativeInput() {
+	public void testMultiplyShouldThrowExceptionOnNegativeInputX() {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("x & y should be >= 0");
 		op.multiply(-5, 1);
 	}
 	
 	@Test 
-	public void testMultiplyShouldReturnZeroFirstNum() {
-		Assert.assertEquals(0, op.multiply(0, 100), 0);	
-	}
+	public void testMultiplyShouldThrowExceptionOnNegativeInputY() {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("x & y should be >= 0");
+		op.multiply(5, -1);
+	} 
 	
 	@Test 
-	public void testMultiplyShouldReturnZeroSecondNum() {
+	public void testMultiplyShouldReturnZeroY() {
 		Assert.assertEquals(0, op.multiply(100, 0), 0);	
 	}
-	
+		
 	@Test 
-	public void testMultiplyShouldThrowExceptionOnNotIntegerInput() {
+	public void testMultiplyShouldThrowExceptionLargeInputX() {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("The product does not fit in an Integer variable");
 		op.multiply(Integer.MAX_VALUE, 100);
+	} 
+	
+	@Test 
+	public void testMultiplyShouldThrowExceptionLargeInputY() {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("The product does not fit in an Integer variable");
+		op.multiply(100, Integer.MAX_VALUE);
 	} 
 	
 	
