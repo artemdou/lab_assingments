@@ -55,25 +55,6 @@ public class FileIOTest {
 		f.readFile(absolutePath);
 	}
 	
-/*	
- * This test does the opposite of testReadFileContainsInvalidEntry; it is sucessful if NumberFormatException 
- * occurs and fails if it does not
- * 
- * @Test (expected = NumberFormatException.class)
-	public void testReadFileContainsInvalidEntryTrue() {
-		
-		String resourceName = "test3.txt";
-		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource(resourceName).getFile());
-		String absolutePath = file.getAbsolutePath();
-		f.readFile(absolutePath);
-		Assert.fail("invalid number");
-		
-		
-	}
-	
-*/
-	
 	@Test
 	public void testReadFileContainsInvalidEntry() {
 			
