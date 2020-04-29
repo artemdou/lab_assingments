@@ -18,10 +18,17 @@ public class MyMathTest {
 	public ExpectedException thrown = ExpectedException.none(); 
 
 	@Test 
-	public void testFactorialInvalidInput() {
+	public void testFactorialInvalidInputNegative() {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("Invalid input");
 		mm.factorial(-5);
+	}
+	
+	@Test 
+	public void testFactorialInvalidInputUpperBound() {
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("Invalid input");
+		mm.factorial(20);
 	}
 	
 	@Test
@@ -37,11 +44,18 @@ public class MyMathTest {
 	@Test
 	public void testIsPrimeTrue() {
 		Assert.assertTrue(mm.isPrime(7));
+	}	
+	
+	@Test
+	public void testIsPrimeTrueForSmallNums() {
+		Assert.assertTrue(mm.isPrime(2));
+		Assert.assertTrue(mm.isPrime(3));
 	}
 	
 	@Test
-	public void testIsPrimeFalsee() {
+	public void testIsPrimeFalse() {
 		Assert.assertFalse(mm.isPrime(6));
+		Assert.assertFalse(mm.isPrime(9));
 	}
 	
 	@Test 
