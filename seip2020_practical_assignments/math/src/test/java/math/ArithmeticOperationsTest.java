@@ -1,16 +1,19 @@
 package math;
 
-import math.ArithmeticOperations;
-
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import math.ArithmeticOperations;
 
 public class ArithmeticOperationsTest {
 
-	ArithmeticOperations op;
+	ArithmeticOperations op; 
 	
+	/*
+	 * This is a constructor which is called 
+	 * when the ArithmeticOperations class is initialized
+	 */
 	public ArithmeticOperationsTest() {
 		this.op = new ArithmeticOperations();
 	}
@@ -21,8 +24,9 @@ public class ArithmeticOperationsTest {
 	 */
 	@Test
 	public void testDevideNormal() {
-		Assert.assertEquals(2, op.divide(4, 2),0);
+		Assert.assertEquals(2, op.divide(4, 2), 0);
 	}
+	
 	/*
 	 * A test case that examines the divide method
 	 * with numerator equal to zero. 
@@ -35,7 +39,7 @@ public class ArithmeticOperationsTest {
 	@Test (expected = ArithmeticException.class)
 	public void testDevideZeroDen() {
 		op.divide(1, 0);
-	} 
+	}
 	
 	@Rule 
 	public ExpectedException thrown = ExpectedException.none(); //initialize it to .none()
@@ -48,9 +52,21 @@ public class ArithmeticOperationsTest {
 	}
 	
 	@Test 
+	public void testMultiplyShouldReturnZeroFirstNum() {
+		Assert.assertEquals(0, op.multiply(0, 100), 0);	
+	}
+	
+	@Test 
+	public void testMultiplyShouldReturnZeroSecondNum() {
+		Assert.assertEquals(0, op.multiply(100, 0), 0);	
+	}
+	
+	@Test 
 	public void testMultiplyShouldThrowExceptionOnNotIntegerInput() {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("The product does not fit in an Integer variable");
 		op.multiply(Integer.MAX_VALUE, 100);
 	} 
+	
+	
 }
