@@ -26,20 +26,8 @@ public class DemoClient {
 			System.exit(1);
 		}
 
-		SourceCodeAnalyzerFactory analyzerFactory = new SourceCodeAnalyzerFactory(sourceFileLocation);
-		SourceCodeAnalyzer analyzer = analyzerFactory.createsSourceCodeAnalyzer(filepath, sourceCodeAnalyzerType);
-		int loc = analyzer.calculateLOC(filepath);
-		int nom = analyzer.calculateNOM(filepath);
-		int noc = analyzer.calculateNOC(filepath);
-		
-		Map<String, Integer> metrics = new HashMap<>();
-		metrics.put("loc",loc);
-		metrics.put("nom",nom);
-		metrics.put("noc",noc);
-				
-		MetricsExporterFactory exporterFactory = new MetricsExporterFactory();
-		MetricsExporter exporter = exporterFactory.createsMetricsExporter(outputFileType);
-		exporter.writeFile(metrics, outputFilePath);
+		Facade operation = new Facade();
+		operation.produceMetrics(filepath, sourceCodeAnalyzerType, sourceFileLocation, outputFilePath, outputFileType);
 	}
 
 }
