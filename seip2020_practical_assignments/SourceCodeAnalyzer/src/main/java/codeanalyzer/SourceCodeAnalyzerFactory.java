@@ -1,13 +1,27 @@
 package codeanalyzer;
 
+/**
+ * Produces the appropriate SourceCodeAnalyzer output
+ * @author artemdou
+ */
 public class SourceCodeAnalyzerFactory {
 
 	private String fileReaderType;
 	
+	/**
+	 * 
+	 * @param fileReaderType
+	 */
 	public SourceCodeAnalyzerFactory(String fileReaderType) {
 		this.fileReaderType = fileReaderType;
 	}
 	
+	/**
+	 * 
+	 * @param filepath
+	 * @param analyzerType
+	 * @return SourceCodeAnalyzer
+	 */
 	public SourceCodeAnalyzer createsSourceCodeAnalyzer(String filepath, String analyzerType) {
 		SourceCodeAnalyzer analyzer;
 		if(analyzerType.equals("regex"))

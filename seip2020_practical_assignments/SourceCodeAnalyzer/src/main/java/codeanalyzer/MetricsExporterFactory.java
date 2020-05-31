@@ -2,11 +2,19 @@ package codeanalyzer;
 
 import java.util.Map;
 
+/**
+ * Produces the appropriate MetricExporter output
+ * @author artemdou
+ */
 public class MetricsExporterFactory {
 
 	private String outputType;
 	
-	
+	/**
+	 * 
+	 * @param outputType
+	 * @return MetricsExporter
+	 */
 	public MetricsExporter createsMetricsExporter(String outputType) {
 		MetricsExporter exporter;
 		if(outputType.equals("csv"))

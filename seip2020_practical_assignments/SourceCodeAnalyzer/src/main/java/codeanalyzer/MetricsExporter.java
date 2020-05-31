@@ -5,12 +5,25 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * 
+ * @author artemdou
+ *
+ */
 public interface MetricsExporter {
-
+	
+	/**
+	 * Exports (writes) the metrics to a given output.
+	 * The output can be CSV or JSON files.
+	 * @param metrics
+	 * @param filepath
+	 */
 	public void writeFile(Map<String, Integer> metrics, String filepath);
 	
+	//interface implementation for csv output
 	class CsvMetricsExporter implements MetricsExporter{
 		
+		//output is a csv file
 		@Override
 		public void writeFile(Map<String, Integer> metrics, String filepath) {
 			File outputFile = new File(filepath + ".csv");
@@ -35,6 +48,7 @@ public interface MetricsExporter {
 		}
 	}
 	
+	//interface implementation for json output
 	class JSONMetricsExporter implements MetricsExporter{
 		
 		@Override

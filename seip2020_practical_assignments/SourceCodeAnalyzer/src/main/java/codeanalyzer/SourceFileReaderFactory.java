@@ -1,7 +1,17 @@
 package codeanalyzer;
 
+/**
+ * Produces the appropriate SourceFileReader object
+ * @author artemdou
+ *
+ */
 public class SourceFileReaderFactory {
 
+	/**
+	 * 
+	 * @param type
+	 * @return SourceFileReader
+	 */
 	public SourceFileReader createsSourceFileReader(String type) {
 		SourceFileReader reader;
 		if(type.equals("local"))

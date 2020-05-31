@@ -7,17 +7,44 @@ import java.util.regex.Pattern;
 
 import codeanalyzer.SourceFileReader;
 
-public interface SourceCodeAnalyzer {
 
+/**
+ * Analyzes the contents of a Java source code file 
+ * and calculates the following metrics: loc = lines of code,
+ * nom = number of methods, and noc=number of classes. 
+ * The current functionality supports two types of source code analysis,
+ * namely regex (with the use of regular expressions) and 
+ * strcomp (with the use of string comparison). 
+ * @author artemdou
+ *
+ */
+public interface SourceCodeAnalyzer {
+	/**
+	 * Calculates LOC metric
+	 * @param filepath
+	 * @return int
+	 * @throws IOException
+	 */
 	public int calculateLOC(String filepath) throws IOException;
 	
+	/**
+	 * Calculate NOM metric
+	 * @param filepath
+	 * @return int
+	 * @throws IOException
+	 */
 	public int calculateNOM(String filepath) throws IOException;
 	
+	/**
+	 * Calculate NOC metric
+	 * @param filepath
+	 * @return int
+	 * @throws IOException
+	 */
 	public int calculateNOC(String filepath) throws IOException;
 	
-	 
+	//implements interface for regex type 
 	public class RegexSourceCodeAnalyzer implements SourceCodeAnalyzer {
-		
 		
 		private SourceFileReader fileReader;
 		
@@ -65,6 +92,7 @@ public interface SourceCodeAnalyzer {
 		
 	}
 	
+	//implements interface for strcom
 	public class StrcomSourceCodeAnalyzer implements SourceCodeAnalyzer {
 		
 		private SourceFileReader fileReader;
