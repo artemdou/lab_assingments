@@ -6,23 +6,13 @@ package codeanalyzer;
  */
 public class SourceCodeAnalyzerFactory {
 
-	private String fileReaderType;
-	
-	/**
-	 * 
-	 * @param fileReaderType
-	 */
-	public SourceCodeAnalyzerFactory(String fileReaderType) {
-		this.fileReaderType = fileReaderType;
-	}
-	
 	/**
 	 * 
 	 * @param filepath
 	 * @param analyzerType
 	 * @return SourceCodeAnalyzer
 	 */
-	public SourceCodeAnalyzer createsSourceCodeAnalyzer(String filepath, String analyzerType) {
+	public SourceCodeAnalyzer createsSourceCodeAnalyzer(String fileReaderType, String filepath, String analyzerType) {
 		SourceCodeAnalyzer analyzer;
 		if(analyzerType.equals("regex"))
 			analyzer = new SourceCodeAnalyzer.RegexSourceCodeAnalyzer(fileReaderType, filepath);

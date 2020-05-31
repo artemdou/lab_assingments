@@ -9,16 +9,16 @@ import org.junit.Test;
 public class SourceCodeAnalyzerFactoryTest {
 
 	private final static String TEST_CLASS = "src/test/resources/TestClass.java";
-	private SourceCodeAnalyzerFactory factory = new SourceCodeAnalyzerFactory("local"); 
+	private SourceCodeAnalyzerFactory factory = new SourceCodeAnalyzerFactory(); 
 	
 	@Test
 	public void testRegex() {
-		assert(factory.createsSourceCodeAnalyzer(TEST_CLASS, "regex") instanceof SourceCodeAnalyzer.RegexSourceCodeAnalyzer);
+		assert(factory.createsSourceCodeAnalyzer("local",TEST_CLASS, "regex") instanceof SourceCodeAnalyzer.RegexSourceCodeAnalyzer);
 	}
 	
 	@Test
 	public void testStrcom() {
-		assert(factory.createsSourceCodeAnalyzer(TEST_CLASS, "strcom") instanceof SourceCodeAnalyzer.StrcomSourceCodeAnalyzer);
+		assert(factory.createsSourceCodeAnalyzer("local",TEST_CLASS, "strcom") instanceof SourceCodeAnalyzer.StrcomSourceCodeAnalyzer);
 	}
 	
 	@Rule 
@@ -28,7 +28,7 @@ public class SourceCodeAnalyzerFactoryTest {
 	public void testInvalidType() {
 		thrown.expect(IllegalArgumentException.class);
 		thrown.expectMessage("Unknown Type: type");
-		factory.createsSourceCodeAnalyzer(TEST_CLASS, "type");
+		factory.createsSourceCodeAnalyzer("local",TEST_CLASS, "type");
 	}
 	
 	

@@ -19,8 +19,8 @@ public class Facade {
 	 * @param outputFileType
 	 */
 	public void produceMetrics(String filepath, String sourceCodeAnalyzerType, String sourceFileLocation, String outputFilePath, String outputFileType) {
-		SourceCodeAnalyzerFactory analyzerFactory = new SourceCodeAnalyzerFactory(sourceFileLocation);
-		SourceCodeAnalyzer analyzer = analyzerFactory.createsSourceCodeAnalyzer(filepath, sourceCodeAnalyzerType);
+		SourceCodeAnalyzerFactory analyzerFactory = new SourceCodeAnalyzerFactory();
+		SourceCodeAnalyzer analyzer = analyzerFactory.createsSourceCodeAnalyzer(sourceFileLocation, filepath, sourceCodeAnalyzerType);
 		try {
 			int loc = analyzer.calculateLOC(filepath);
 			int nom = analyzer.calculateNOM(filepath);
