@@ -16,7 +16,7 @@ import static org.mockito.Mockito.doCallRealMethod;
 
 public class MetricsExporterTest {
 	
-	MetricsExporter CsxExporter = new MetricsExporter.CsvMetricsExporter();
+	MetricsExporter csxExporter = new MetricsExporter.CsvMetricsExporter();
 	MetricsExporter JSONExporter = new MetricsExporter.JSONMetricsExporter();
 	
 	@Test
@@ -29,7 +29,7 @@ public class MetricsExporterTest {
 		
 		// generate and write the output file
 		String outputFilepath = "src/test/resources/output_metrics";
-		CsxExporter.writeFile(metrics, outputFilepath);
+		csxExporter.writeFile(metrics, outputFilepath);
 		
 		// evaluate that the file exists
 		File outputFile = new File(outputFilepath + ".csv");
