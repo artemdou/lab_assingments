@@ -26,10 +26,11 @@ public class DemoClient {
 			System.exit(1);
 		}
 
-		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(sourceFileLocation);
-		int loc = analyzer.calculateLOC(filepath, sourceCodeAnalyzerType);
-		int nom = analyzer.calculateNOM(filepath, sourceCodeAnalyzerType);
-		int noc = analyzer.calculateNOC(filepath, sourceCodeAnalyzerType);
+		SourceCodeAnalyzerFactory analyzerFactory = new SourceCodeAnalyzerFactory(sourceFileLocation);
+		SourceCodeAnalyzer analyzer = analyzerFactory.createsSourceCodeAnalyzer(filepath, sourceCodeAnalyzerType);
+		int loc = analyzer.calculateLOC(filepath);
+		int nom = analyzer.calculateNOM(filepath);
+		int noc = analyzer.calculateNOC(filepath);
 		
 		Map<String, Integer> metrics = new HashMap<>();
 		metrics.put("loc",loc);
