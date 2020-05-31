@@ -23,7 +23,7 @@ public interface SourceCodeAnalyzer {
 		
 		public RegexSourceCodeAnalyzer(String fileReaderType, String filepath) {
 			SourceFileReaderFactory factroy = new SourceFileReaderFactory();
-			this.fileReader = factroy.createsSourceFileReader(filepath, fileReaderType);
+			this.fileReader = factroy.createsSourceFileReader(fileReaderType);
 		}
 
 		@Override
@@ -71,7 +71,7 @@ public interface SourceCodeAnalyzer {
 		
 		public StrcomSourceCodeAnalyzer(String fileReaderType, String filepath) {
 			SourceFileReaderFactory factroy = new SourceFileReaderFactory();
-			this.fileReader = factroy.createsSourceFileReader(filepath, fileReaderType);
+			this.fileReader = factroy.createsSourceFileReader(fileReaderType);
 		}
 		
 		@Override

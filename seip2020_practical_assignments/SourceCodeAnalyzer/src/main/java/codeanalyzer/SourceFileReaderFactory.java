@@ -2,7 +2,7 @@ package codeanalyzer;
 
 public class SourceFileReaderFactory {
 
-	public SourceFileReader createsSourceFileReader(String filepath, String type) {
+	public SourceFileReader createsSourceFileReader(String type) {
 		SourceFileReader reader;
 		if(type.equals("local"))
 			reader = new SourceFileReader.LocalSourceReader();
