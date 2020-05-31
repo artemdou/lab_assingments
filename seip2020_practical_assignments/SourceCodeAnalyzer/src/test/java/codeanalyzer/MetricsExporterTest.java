@@ -16,7 +16,8 @@ import static org.mockito.Mockito.doCallRealMethod;
 
 public class MetricsExporterTest {
 	
-	MetricsExporter mex = new MetricsExporter();
+	MetricsExporter CsxExporter = new MetricsExporter.CsvMetricsExporter();
+	MetricsExporter JSONExporter = new MetricsExporter.JSONMetricsExporter();
 	
 	@Test
 	public void testWriteCsv() {
@@ -28,7 +29,7 @@ public class MetricsExporterTest {
 		
 		// generate and write the output file
 		String outputFilepath = "src/test/resources/output_metrics";
-		mex.writeFile("csv", metrics, outputFilepath);
+		CsxExporter.writeFile(metrics, outputFilepath);
 		
 		// evaluate that the file exists
 		File outputFile = new File(outputFilepath + ".csv");
@@ -40,21 +41,17 @@ public class MetricsExporterTest {
 	
 	@Test
 	public void testWriteJson() {
-		MetricsExporter mockedExporter = mock(MetricsExporter.class);
+		MetricsExporter mockedExporter = mock(MetricsExporter.JSONMetricsExporter.class);
 		// create an empty metrics content
 		Map<String, Integer> metrics = new HashMap<>();
 		String outputFilepath = "whatever-path";
 		
 		//this is a demo of how a mocked object can call a real method (partial mocking)
-		doCallRealMethod().when(mockedExporter).writeFile("json", metrics, outputFilepath);
-		mockedExporter.writeFile("json", metrics, outputFilepath);
+		doCallRealMethod().when(mockedExporter).writeFile( metrics, outputFilepath);
+		mockedExporter.writeFile( metrics, outputFilepath);
 		//just verify that the method was executed/called
-		verify(mockedExporter).writeFile("json", metrics, outputFilepath);
+		verify(mockedExporter).writeFile( metrics, outputFilepath);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void testWriteFileWithUknownFIleType() {
-		mex.writeFile("non-existing-type", null, null);
-	}
 
 }
