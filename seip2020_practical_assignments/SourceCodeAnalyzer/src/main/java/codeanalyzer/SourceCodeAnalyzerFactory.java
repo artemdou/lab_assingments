@@ -11,9 +11,9 @@ public class SourceCodeAnalyzerFactory {
 	public SourceCodeAnalyzer createsSourceCodeAnalyzer(String filepath, String analyzerType) {
 		SourceCodeAnalyzer analyzer;
 		if(analyzerType.equals("regex"))
-			analyzer = new SourceCodeAnalyzer.RegexSourceCodeAnalyzer(fileReaderType);
+			analyzer = new SourceCodeAnalyzer.RegexSourceCodeAnalyzer(fileReaderType, filepath);
 		else if(analyzerType.equals("strcom"))
-			analyzer = new SourceCodeAnalyzer.StrcomSourceCodeAnalyzer(fileReaderType);
+			analyzer = new SourceCodeAnalyzer.StrcomSourceCodeAnalyzer(fileReaderType, filepath);
 		else 
 			throw new IllegalArgumentException("Unknown Type: "+analyzerType);
 		return analyzer; 

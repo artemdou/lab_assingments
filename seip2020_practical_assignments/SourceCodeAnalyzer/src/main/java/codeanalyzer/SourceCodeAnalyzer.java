@@ -19,11 +19,11 @@ public interface SourceCodeAnalyzer {
 	public class RegexSourceCodeAnalyzer implements SourceCodeAnalyzer {
 		
 		
-		
 		private SourceFileReader fileReader;
 		
-		public RegexSourceCodeAnalyzer(String fileReaderType) {
-			this.fileReader = new SourceFileReader(fileReaderType);
+		public RegexSourceCodeAnalyzer(String fileReaderType, String filepath) {
+			SourceFileReaderFactory factroy = new SourceFileReaderFactory();
+			this.fileReader = factroy.createsSourceFileReader(filepath, fileReaderType);
 		}
 
 		@Override
@@ -69,8 +69,9 @@ public interface SourceCodeAnalyzer {
 		
 		private SourceFileReader fileReader;
 		
-		public StrcomSourceCodeAnalyzer(String fileReaderType) {
-			this.fileReader = new SourceFileReader(fileReaderType);
+		public StrcomSourceCodeAnalyzer(String fileReaderType, String filepath) {
+			SourceFileReaderFactory factroy = new SourceFileReaderFactory();
+			this.fileReader = factroy.createsSourceFileReader(filepath, fileReaderType);
 		}
 		
 		@Override
