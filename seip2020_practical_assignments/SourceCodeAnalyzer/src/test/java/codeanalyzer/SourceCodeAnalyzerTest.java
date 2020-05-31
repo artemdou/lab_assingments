@@ -16,7 +16,6 @@ import codeanalyzer.SourceCodeAnalyzer;
 import static org.junit.Assert.*;
 
 public class SourceCodeAnalyzerTest {
-	private static List<String> testSourceCode;
 	private final static String TEST_CLASS = "src/test/resources/TestClass.java";
 	private SourceCodeAnalyzer.StrcomSourceCodeAnalyzer sca2 = new SourceCodeAnalyzer.StrcomSourceCodeAnalyzer("local");
 	private SourceCodeAnalyzer.RegexSourceCodeAnalyzer sca1 = new SourceCodeAnalyzer.RegexSourceCodeAnalyzer("local");
