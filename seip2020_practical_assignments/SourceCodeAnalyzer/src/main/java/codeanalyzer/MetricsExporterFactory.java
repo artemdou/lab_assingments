@@ -8,8 +8,6 @@ import java.util.Map;
  */
 public class MetricsExporterFactory {
 
-	private String outputType;
-	
 	/**
 	 * 
 	 * @param outputType
