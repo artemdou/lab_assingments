@@ -37,8 +37,9 @@ public class DemoClient {
 		metrics.put("nom",nom);
 		metrics.put("noc",noc);
 				
-		MetricsExporter exporter = new MetricsExporter();
-		exporter.writeFile(outputFileType, metrics, outputFilePath);
+		MetricsExporterFactory exporterFactory = new MetricsExporterFactory(outputFileType);
+		MetricsExporter exporter = exporterFactory.createsMetricsExporter();
+		exporter.writeFile(metrics, outputFilePath);
 	}
 
 }
