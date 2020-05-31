@@ -14,3 +14,9 @@
 /seip2020_practical_assignments/gradeshistogram/target/
 /seip2020_practical_assignments/gradeshistogram/.classpath
 /seip2020_practical_assignments/gradeshistogram/.project
+
+/seip2020_practical_assignments/SourceCodeAnalyzer/target/
+/seip2020_practical_assignments/SourceCodeAnalyzer/.settings/
+/seip2020_practical_assignments/SourceCodeAnalyzer/.classpath
+/seip2020_practical_assignments/SourceCodeAnalyzer/.project
+/seip2020_practical_assignments/SourceCodeAnalyzer/output_metrics.cvs
