@@ -6,11 +6,8 @@ public class MetricsExporterFactory {
 
 	private String outputType;
 	
-	public MetricsExporterFactory(String outputType) {
-		this.outputType = outputType;
-	}
 	
-	public MetricsExporter createsMetricsExporter() {
+	public MetricsExporter createsMetricsExporter(String outputType) {
 		MetricsExporter exporter;
 		if(outputType.equals("csv"))
 			exporter = new MetricsExporter.CsvMetricsExporter();
