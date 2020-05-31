@@ -16,6 +16,8 @@ This repository consists of a parent Maven project and two sub-projects (modules
  1. [HistogramGenerator](https://github.com/artemdou/lab_assingments/tree/development/seip2020_practical_assignments/gradeshistogram), that handles dependencies. More specifically, it creates a histogram from a given set of numbers.
  2. [Math](https://github.com/artemdou/lab_assingments/blob/development/seip2020_practical_assignments/math/README.md), that handles arithmetic operations. 
 [learn about the math module](https://github.com/artemdou/lab_assingments/blob/development/seip2020_practical_assignments/math/README.md)
+3.[SourceCodeAnalyzer](https://github.com/artemdou/lab_assingments/tree/development/seip2020_practical_assignments/SourceCodeAnalyzer)
+[learn about the SourceCodeAnalyzer module](https://github.com/artemdou/lab_assingments/blob/development/seip2020_practical_assignments/SourceCodeAnalyzer/README.txt)
 
 In order to build the project execute the following Maven command in the project's root folder:
 ```
