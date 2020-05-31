@@ -8,16 +8,18 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 import org.junit.Test;
 
 import codeanalyzer.SourceFileReader;
 
+
 public class SourceFileReaderTest {
-/*	SourceFileReader sfr = null;
+	private static SourceFileReader.LocalSourceReader sfrl = new SourceFileReader.LocalSourceReader();
+	private static SourceFileReader.WebSourceReader sfrw = new SourceFileReader.WebSourceReader();
 	private static List<String> expectedList;
 	private static String expectedString;
-	private final static String TYPE_WEB = "web";
-	private final static String TYPE_LOCAL = "local";
 	private final static String TEST_CLASS_LOCAL = "src/test/resources/TestClass.java";
 	private final static String TEST_CLASS_WEB ="https://drive.google.com/uc?export=download&id=1z51FZXqPyun4oeB7ERFlOgfcoDfLLLhg";
 	
@@ -30,8 +32,7 @@ public class SourceFileReaderTest {
 	@Test
 	public void testReadFileIntoListLocal() throws IOException {
 		//read a locally stored file into a List
-		sfr = new SourceFileReader(TYPE_LOCAL);
-		List<String> actualList = sfr.readFileIntoList(TEST_CLASS_LOCAL);
+		List<String> actualList = sfrl.readFileIntoList(TEST_CLASS_LOCAL);
 		
 		String[] expecteds = expectedList.stream().toArray(String[]::new);
 		String[] actuals = actualList.stream().toArray(String[]::new);
@@ -42,17 +43,14 @@ public class SourceFileReaderTest {
 	@Test
 	public void testReadFileIntoStringLocal() throws IOException {
 		//read a locally stored file into a String
-		sfr = new SourceFileReader(TYPE_LOCAL);
-		String actuals = sfr.readFileIntoString(TEST_CLASS_LOCAL);
-				
+		String actuals = sfrl.readFileIntoString(TEST_CLASS_LOCAL);
 		assertEquals(expectedString, actuals);
 	}
-	
+		
 	@Test
 	public void testReadFileIntoListWeb() throws IOException {
 		//read a file stored in the web into a List
-		sfr = new SourceFileReader(TYPE_WEB);
-		List<String> actualList = sfr.readFileIntoList(TEST_CLASS_WEB);
+		List<String> actualList = sfrw.readFileIntoList(TEST_CLASS_WEB);
 		
 		String[] expecteds = expectedList.stream().toArray(String[]::new);
 		String[] actuals = actualList.stream().toArray(String[]::new);
@@ -63,27 +61,41 @@ public class SourceFileReaderTest {
 	@Test
 	public void testReadFileIntoStringWeb() throws IOException {
 		//read a file stored in the web into a String
-		sfr = new SourceFileReader(TYPE_WEB);
-		String actuals = sfr.readFileIntoString(TEST_CLASS_WEB);
+		String actuals = sfrw.readFileIntoString(TEST_CLASS_WEB);
 				
 		assertEquals(expectedString, actuals);
 	}
 	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none(); 
+	
 	@Test
-	public void testReadFileIntoListNull() throws IOException {
+	public void testReadLocalFileIntoListNull() throws IOException {
 		//give a none existing type to cause a null List return
-		sfr = new SourceFileReader("non-existing-type");
-		List<String> actualList = sfr.readFileIntoList("any-filepath");
+		thrown.expect(java.io.FileNotFoundException.class);
+		sfrl.readFileIntoList("any-filepath");
 		
-		assertNull(actualList);
 	}
 	
 	@Test
-	public void testReadFileIntoStringNull() throws IOException {
+	public void testReadWeblFileIntoListNull() throws IOException {
+		//give a none existing type to cause a null List return
+		thrown.expect(java.net.MalformedURLException.class);
+		sfrw.readFileIntoList("any-filepath");
+	}
+	
+	@Test
+	public void testLocalReadFileIntoStringNull() throws IOException {
 		//give a none existing type to cause a null String return
-		sfr = new SourceFileReader("non-existing-type");
-		String actualString = sfr.readFileIntoString("any-filepath");
+		thrown.expect(java.io.FileNotFoundException.class);
+		sfrl.readFileIntoString("any-filepath");
 		
-		assertNull(actualString);
-	} */
+	} 
+	
+	@Test
+	public void testWebReadFileIntoStringNull() throws IOException {
+		//give a none existing type to cause a null String return
+		thrown.expect(java.net.MalformedURLException.class);
+		sfrw.readFileIntoString("any-filepath");
+	} 
 }
